@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkLoops"
         mc:Ignorable="d" FontSize="20" Foreground="{Binding ThemeVM.FontColor}"
-        Title="Work L∞ps" Height="450" Width="800" Icon="images/WorkLoops.ico">
+        Title="Work L∞ps" Height="540" Width="960" Icon="images/WorkLoops.ico">
 
     <Grid Background="{Binding ThemeVM.BGColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
+            <!-- Column 1, Content Area 1 -->
             <ColumnDefinition Width="*"/>
-            <!-- Column 2, Content Area 1 -->
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <!-- Column 3, Content Area 2 -->
             <ColumnDefinition Width="*"/>
-            <!-- Column 4, Content Area 2 -->
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+            <!-- Column 5, Content Area 3 -->
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
@@ -25,30 +26,29 @@
             
             <!-- Row 1, Title -->
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
             
             <!-- Row 3, Progress Bar-->
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
             
             <!-- Row 5, Work Length and Short Break Length Controls -->
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="15"/>
             
             <!-- Row 7,
             Short Breaks Per Long Break and Long Break Length Controls -->
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="15"/>
             
             <!-- Row 9, Start and Stop Buttons -->
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
             
             <!-- Row 11, Reset and Help Buttons -->
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
             
-            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <Menu x:Name="MenuBar" VerticalAlignment="Top"
@@ -96,7 +96,7 @@
         </StackPanel>
 
         <!-- Work Length Slider -->
-        <StackPanel Grid.Column="2" Grid.Row="5">
+        <StackPanel Grid.Column="1" Grid.Row="5" VerticalAlignment="Center">
             <TextBlock Text="Work Length" TextAlignment="Center"/>
             <Slider x:Name="WorkLengthSlider" Minimum="20" Maximum="60"
                     MinWidth="200" TickFrequency="5"
@@ -110,7 +110,7 @@
         </StackPanel>
 
         <!-- Short Breaks Until Long Break Slider -->
-        <StackPanel Grid.Column="2" Grid.Row="7">
+        <StackPanel Grid.Column="1" Grid.Row="7" VerticalAlignment="Center">
             <TextBlock Text="Shorts Until Long" TextAlignment="Center"/>
             <Slider x:Name="ShortPerLongSlider" Minimum="2" Maximum="10"
                     MinWidth="200" TickFrequency="1"
@@ -124,7 +124,7 @@
         </StackPanel>
 
         <!-- Short Break Length Slider -->
-        <StackPanel Grid.Column="4" Grid.Row="5">
+        <StackPanel Grid.Column="3" Grid.Row="5" VerticalAlignment="Center">
             <TextBlock Text="Short Break Length" TextAlignment="Center"/>
             <Slider x:Name="ShortBreakLengthSlider" Minimum="5" Maximum="15"
                     MinWidth="200" TickFrequency="5"
@@ -138,7 +138,7 @@
         </StackPanel>
 
         <!-- Long Break Length Slider -->
-        <StackPanel Grid.Column="4" Grid.Row="7">
+        <StackPanel Grid.Column="3" Grid.Row="7" VerticalAlignment="Center">
             <TextBlock Text="Long Break Length" TextAlignment="Center"/>
             <Slider x:Name="LongBreakLengthSlider" Minimum="10" Maximum="30"
                     MinWidth="200" TickFrequency="5"
@@ -152,17 +152,27 @@
         </StackPanel>
 
         <!-- Buttons -->
-        <Button x:Name="StartButton" Grid.Column="2" Grid.Row="9"
+        <Button x:Name="StartButton" Grid.Column="1" Grid.Row="9"
                 MinWidth="100" MinHeight="30" Content="Start" 
                 Click="StartButton_Click"/>
-        <Button x:Name="StopButton" Grid.Column="4" Grid.Row="9"
-                MinWidth="100" MinHeight="30" Content="Stop" 
-                Click="StopButton_Click"/>
-        <Button x:Name="ResetButton" Grid.Column="2" Grid.Row="11"
+        <Button x:Name="ResetButton" Grid.Column="1" Grid.Row="11"
                 MinWidth="100" MinHeight="30" Content="Reset" 
                 Click="ResetButton_Click"/>
-        <Button x:Name="HelpButton" Grid.Column="4" Grid.Row="11"
+        <Button x:Name="StopButton" Grid.Column="3" Grid.Row="9"
+                MinWidth="100" MinHeight="30" Content="Stop" 
+                Click="StopButton_Click"/>
+        <Button x:Name="HelpButton" Grid.Column="3" Grid.Row="11"
                 MinWidth="100" MinHeight="30" Content="Help" 
                 Click="HelpButton_Click"/>
+        <Button x:Name="SaveButton" Grid.Column="5" Grid.Row="9"
+                MinWidth="100" MinHeight="30" Content="Save"/>
+        <Button x:Name="LoadButton" Grid.Column="5" Grid.Row="11"
+                MinWidth="100" MinHeight="30" Content="Load"/>
+        
+        <!-- Notes Section -->
+        <StackPanel Grid.Row="5" Grid.Column="5" Grid.RowSpan="3" VerticalAlignment="Stretch">
+            <TextBlock Text="Notes" TextAlignment="Center"/>
+            <TextBox VerticalAlignment="Stretch" MinLines="8" TextWrapping="Wrap" Text="Add your notes here..."/>
+        </StackPanel>
     </Grid>
 </Window>

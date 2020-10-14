@@ -15,6 +15,7 @@ namespace WorkLoops.ViewModels
         private byte _shortBreakLength;
         private byte _longBreakLength;
         private byte _shortBreaksUntilLongBreak;
+        private string _notes;
 
         private int _progress;
 
@@ -27,6 +28,19 @@ namespace WorkLoops.ViewModels
         /// the UI with the Looptimer.
         /// </summary>
         Timer clock;
+
+        public string Notes
+        {
+            get
+            {
+                return _notes;
+            }
+            set
+            {
+                _notes = value;
+                OnPropertyChanged("Notes");
+            }
+        }
 
         public byte WorkLength
         {

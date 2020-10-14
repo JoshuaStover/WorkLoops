@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkLoops"
+        Closing="ApplicationExit"
         mc:Ignorable="d" FontSize="20" Foreground="{Binding ThemeVM.FontColor}"
         Title="Work L∞ps" Height="540" Width="960" Icon="images/WorkLoops.ico">
 
@@ -164,15 +165,13 @@
         <Button x:Name="HelpButton" Grid.Column="3" Grid.Row="11"
                 MinWidth="100" MinHeight="30" Content="Help" 
                 Click="HelpButton_Click"/>
-        <Button x:Name="SaveButton" Grid.Column="5" Grid.Row="9"
-                MinWidth="100" MinHeight="30" Content="Save"/>
-        <Button x:Name="LoadButton" Grid.Column="5" Grid.Row="11"
-                MinWidth="100" MinHeight="30" Content="Load"/>
-        
+
         <!-- Notes Section -->
-        <StackPanel Grid.Row="5" Grid.Column="5" Grid.RowSpan="3" VerticalAlignment="Stretch">
+        <StackPanel Grid.Row="5" Grid.Column="5" Grid.RowSpan="7" VerticalAlignment="Stretch">
             <TextBlock Text="Notes" TextAlignment="Center"/>
-            <TextBox VerticalAlignment="Stretch" MinLines="8" TextWrapping="Wrap" Text="Add your notes here..."/>
+            <TextBox VerticalAlignment="Stretch" MinLines="16" MaxLines="16" BorderThickness="2" TextWrapping="Wrap" 
+                     Text="{Binding TimerVM.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     VerticalScrollBarVisibility="Visible" FontSize="14" AcceptsReturn="True"/>
         </StackPanel>
     </Grid>
 </Window>

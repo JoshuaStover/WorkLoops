@@ -12,6 +12,7 @@ namespace WorkLoops
         private byte _longBreakLength;
         private byte _shortBreaksUntilLongBreak;
         private byte _shortBreaksTaken;
+        private string _notes;
 
         private int _timeElapsedSeconds;
         private int _currentTaskLengthSeconds;
@@ -48,6 +49,18 @@ namespace WorkLoops
             _taskProgress = 0;
 
             _currentTaskString = tvm.CurrentTask;
+
+            _notes = tvm.Notes;
+        }
+
+        public string GetNotes()
+        {
+            return _notes;
+        }
+
+        public void SetNotes(string newNotes)
+        {
+            _notes = newNotes;
         }
 
         public string GetTask()

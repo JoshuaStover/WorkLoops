@@ -9,7 +9,7 @@ With the application open, you can use sliders to change the length of working p
 At the end of a working period or end of a break a sound effect is played to alert the user of the change in state. Sound effects were created using LMMS.
 
 ### Themes
-The theme menu lets users choose a color scheme from a list. The theme can be changed at any time, including during active loops, but will default to the standard light theme by default.
+The theme menu lets users choose a color scheme from a list. The theme can be changed at any time, including during active loops, but will default to the standard light theme.
 - - - 
 ## Implementation
 This application was created in Visual Studio with C# and WPF, using the MVVM pattern.
